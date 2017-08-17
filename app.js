@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('express-flash-messages');
 const Lroutes = require('./routes/login');
-
+const Sroutes = require('./routes/search')
 // require stuff for passport
 const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
