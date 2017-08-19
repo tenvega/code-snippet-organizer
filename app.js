@@ -13,7 +13,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 // bluebird is a promise library. checkout bluebirdjs.org
 const bluebird = require('bluebird');
-// set mongoose's primise library to be bluebird
+// set mongoose's promise library to be bluebird
 mongoose.Promise = bluebird;
 //require schema files
 const User = require('./models/user');
