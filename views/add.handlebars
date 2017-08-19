@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+  </head>
+  <a href="/">Home</a>
+  <br>
+  <span class="delete"><a href="/deleteSnippet/?id={{codeSnpt._id}}">Delete Snippet</a></span>
+
+
+  <div class="">
+    <form class="addForm" action="/snippets" method="post">
+      <label for="title">Title</label>
+      <input type="text" name="title" value="{{snippet.title}}" placeholder="Title"/>
+      <div class="fieldError">{{errors.title.message}}</div>
+
+      <label for="body">Body</label>
+      <textarea type="textarea" row="5" col="5" name="body" value="{{snippet.body}}" placeholder="snippet"/></textarea>
+      <div class="fieldError">{{errors.body.message}}</div>
+
+      <label for="notes">Notes</label>
+      <input type="text" name="notes" value="{{snippet.notes}}" placeholder="notes"/>
+      <div class="fieldError">{{errors.notes.message}}</div>
+
+      <label for="language">Language</label>
+      <input type="text" name="language" value="{{snippet.language}}" placeholder="language"/>
+      <div class="fieldError">{{errors.language.message}}</div>
+    <div class="">
+
+    <div class="tag_wrapper">
+      <label for="tags">tags</label>
+      <input class='add tags' type="text" id="tags" name="tags" value="{{snippet.tags}}" placeholder="tags"/>
+      <div class="fieldError">{{errors.tags.message}}</div>
+      <label for="author">author</label>
+      <input class='author' type="text" id="author" name="author" value="{{snippet.author}}" placeholder="author"/>
+      <div class="fieldError">{{errors.author.message}}</div>
+      <button type="button" class="tag_removetag_button">-</button>
+
+    </div>
+
+
+
+  <div class="">
+    {{#if snippet._id}}
+      <input type="hidden" name="_id" value="{{codeSnpt._id}}" />
+    {{/if}}
+    <div class="">
+    <button class="update" name="add"> Submit </button>
+
+    </div>
+  </div>
+  </div>
+    </form>
+  </div>
+
+
+  </body>
+</html>

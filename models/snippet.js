@@ -9,7 +9,7 @@ const snptSchema = new Schema({
   body: { type: String, required: true },
   notes: {type: String},
   language: {type: String, required: true},
-  tags: {type: Array, required: true},
+  tags: [],
   author: {type: String, required: true}
 });
 

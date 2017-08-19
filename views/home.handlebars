@@ -1,5 +1,46 @@
-<h1>Home!</h1>
+<!DOCTYPE html>
+<html>
 
-<p>Welcome home, {{user.name}}</p>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
 
-<a href="/logout">Log out</a>
+<body>
+
+  <h1>Home!</h1>
+
+  <p>Welcome home, {{user.name}}</p>
+
+  <a href="/logout">Log out</a>
+
+  <div class="nav">
+
+    <form class="search" action="/search" method="get">
+      <input class='search' type="text" name="snippets">
+      <button>Search</button>
+    </form>
+
+  </div>
+
+  <h1>Hello {{user.name}}!</h1>
+
+  <a class="button" href="/snippetsList">My Snippets</a>
+
+  <div class="">
+    {{#snippet}}
+      <a href="/snippets/add?id={{_id}}">{{title}}</a>
+    {{/snippet}}
+    <form class="" action="/snippets/add" method="get">
+      <button name="add">add</button>
+    </form>
+  </div>
+
+
+
+</body>
+
+</html>
+
+<body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+
+    <div class="snippet_table" border="1">
+
+
+
+
+
+  {{#snippet}}
+  <tr>
+    <a href="/snippets/add?id={{_id}}">{{snippets.title}}</a></td>
+    <p>{{language}}</td>
+    <p>{{body}}</p>
+    <p>{{notes}}</p>
+    <p>{{tags}}</p>
+    <p><a href="/deleteSnippet/?id={{_id}}">Delete</a></p>
+
+  {{/snippet}}
+  </div>
+
+</div>
+
+
+  </body>
+</html>
