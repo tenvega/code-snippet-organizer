@@ -2,7 +2,10 @@ const express = require('express');
 const routes = express.Router();
 const User = require('../models/user');
 const Snippet = require('../models/snippet');
+const flash = require('express-flash-messages');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 
 const requireLogin = (req, res, next) => {
   console.log('req.user', req.user);
@@ -15,20 +18,13 @@ const requireLogin = (req, res, next) => {
 
 routes.use(requireLogin);
 
-routes.get('/snippetsList', (req, res) => {
-  Snippet.find({ userID: req.user.id })
-    // then show my clubs
-    .then(snippet => res.render('snippetsList', { snippet: snippet }))
-    // handle errors
-    .catch(err => res.send('there was an error :('));
-});
 
 
 routes.get('/snippets/add', (req, res) => {
     if (req.query.id) {
       Snippet.findById(req.query.id)
         // render form with this item
-        .then(snippet => res.render('add', { snippet: snippet }));
+        .then(snippet => res.render('add', { user: request.user, snippets: snippets}));
     } else {
       res.render('add');
     }
@@ -57,7 +53,6 @@ routes.post('/snippets', (req, res) => {
 routes.get('/delete', (req, res) => {
   Snippet.findById(req.query.id)
     .remove()
-    // then redirect to the homepage
     .then(() => res.redirect('/snippetsList'));
 });
 

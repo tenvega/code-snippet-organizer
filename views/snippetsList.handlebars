@@ -7,26 +7,46 @@
   <body>
     <a href="/">Home</a>
 
-    <div class="snippet_table" border="1">
+    <table class="snippet_table" border="1">
+      <tr>
+        <th>
+          Edit
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Body
+        </th>
+        <th>
+          Notes
+        </th>
+        <th>
+          Language
+        </th>
+        <th>
+          Tags
+        </th>
+        <th>
+          Author
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+    </br>
 
+      {{#snippets}}
+      <tr>
+        <td><a href="/snippets/add?id={{_id}}">{{title}}</a></td>
+        <td>{{title}}</td>
+        <td>{{body}}</td>
+        <td>{{notes}}</td>
+        <td>{{language}}</td>
+        <td>{{tags}}</td>
+        <td>{{author}}</td>
+        <td><a href="/delete/?id={{_id}}">Delete</a></td>
+      </tr>
+      {{/snippets}}
 
-
-
-
-  {{#snippet}}
-  <tr>
-    <a href="/snippets/add?id={{_id}}">{{snippets.title}}</a></td>
-    <p>{{language}}</td>
-    <p>{{body}}</p>
-    <p>{{notes}}</p>
-    <p>{{tags}}</p>
-    <p><a href="/deleteSnippet/?id={{_id}}">Delete</a></p>
-
-  {{/snippet}}
-  </div>
-
-</div>
-
-
-  </body>
-</html>
+    </table>

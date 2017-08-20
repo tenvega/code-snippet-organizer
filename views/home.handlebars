@@ -29,9 +29,10 @@
   <a class="button" href="/snippetsList">My Snippets</a>
 
   <div class="">
-    {{#snippet}}
+    {{#snippets}}
       <a href="/snippets/add?id={{_id}}">{{title}}</a>
-    {{/snippet}}
+
+    {{/snippets}}
     <form class="" action="/snippets/add" method="get">
       <button name="add">add</button>
     </form>

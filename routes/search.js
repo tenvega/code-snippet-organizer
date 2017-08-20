@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = express.Router();
-const Snippet = require('../models/snippet')
+const Snippet = require('../models/snippet');
+const bodyParser = require('body-parser');
 
 const requireLogin = (req, res, next) => {
   console.log('req.user', req.user);
@@ -13,9 +14,9 @@ const requireLogin = (req, res, next) => {
 
 routes.use(requireLogin)
 
-routes.get('/', requireLogin, (req, res) => {
+routes.get('/search', requireLogin, (req, res) => {
 
-  let srch = req.query.dbSnippets;
+  let srch = req.query.snippets;
 
   Snippet.find({
    author: req.user.username,
