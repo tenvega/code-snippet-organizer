@@ -66,7 +66,7 @@ const requireLogin = (req, res, next) => {
 };
 
 app.get('/', requireLogin, (req, res) => {
-  Snippet.find({name: req.user.username})
+  Snippet.find({author: req.user.name})
     .then((snippets) => {
       res.render('home', {user: req.user, snippets: snippets})
     })
@@ -74,7 +74,7 @@ app.get('/', requireLogin, (req, res) => {
 });
 
 app.get('/snippetsList', requireLogin, (req, res) => {
-  Snippet.find({name: req.user.username})
+  Snippet.find({author: req.user.name})
     .then((snippets) => {
       res.render('snippetsList', {user: req.user, snippets: snippets})
     })
