@@ -4,7 +4,7 @@ mongoimport --db codesnippets --collection snippets --out snippets.json
 sign in using: email: 
 -luis@gmail.com password: dos 
 -ki@gmail.com password: tres
-or regiter for an accoutn.
+-regiter for an accoutn.
 
 Project Details:
 Using Express and Mongoose, create an application that organizes code snippets that you save for later use.
