@@ -3,15 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
     <a href="/">Home</a>
 
     <table class="snippet_table" border="1">
       <tr>
-        <th>
-          Edit
-        </th>
         <th>
           Title
         </th>
@@ -38,7 +37,6 @@
 
       {{#snippets}}
       <tr>
-        <td><a href="/snippets/add?id={{_id}}">{{title}}</a></td>
         <td>{{title}}</td>
         <td>{{body}}</td>
         <td>{{notes}}</td>

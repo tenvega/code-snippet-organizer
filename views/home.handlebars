@@ -4,36 +4,39 @@
 <head>
   <meta charset="utf-8">
   <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-  <h1>Home!</h1>
+  <h1>Home</h1>
 
-  <p>Welcome home, {{user.name}}</p>
+  <h2>Hello {{user.name}}!</h2>
 
   <a href="/logout">Log out</a>
 
-  <div class="nav">
 
+  <div class="nav">
     <form class="search" action="/search" method="get">
-      <input class='search' type="text" name="snippets">
+      <input type="text" name="snippetsresults">
       <button>Search</button>
     </form>
-
   </div>
 
-  <h1>Hello {{user.name}}!</h1>
 
-  <a class="button" href="/snippetsList">My Snippets</a>
+
+
+  <a class="button" href="/snippetsList">See all Snippets</a>
+
+  <br>
 
   <div class="">
     {{#snippets}}
-      <a href="/snippets/add?id={{_id}}">{{title}}</a>
-
+      <a href="/search?snippetsresults={{title}}">{{title}}</a>
     {{/snippets}}
-    <form class="" action="/snippets/add" method="get">
+
+    <form class="" action="/list/add" method="get">
       <button name="add">add</button>
     </form>
   </div>

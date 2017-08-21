@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   </head>
   <body>
   </head>
   <a href="/">Home</a>
   <br>
-  <span class="delete"><a href="/deleteSnippet/?id={{codeSnpt._id}}">Delete Snippet</a></span>
 
 
   <div class="">
@@ -31,14 +31,14 @@
       <div class="fieldError">{{errors.language.message}}</div>
     <div class="">
 
-    <div class="tag_wrapper">
+    <div class="tagsdiv">
       <label for="tags">tags</label>
       <input class='add tags' type="text" id="tags" name="tags" value="{{snippet.tags}}" placeholder="tags"/>
       <div class="fieldError">{{errors.tags.message}}</div>
       <label for="author">author</label>
       <input class='author' type="text" id="author" name="author" value="{{snippet.author}}" placeholder="author"/>
       <div class="fieldError">{{errors.author.message}}</div>
-      <button type="button" class="tag_removetag_button">-</button>
+      
 
     </div>
 
@@ -46,7 +46,7 @@
 
   <div class="">
     {{#if snippet._id}}
-      <input type="hidden" name="_id" value="{{codeSnpt._id}}" />
+      <input type="hidden" name="_id" value="{{snippet._id}}" />
     {{/if}}
     <div class="">
     <button class="update" name="add"> Submit </button>
@@ -58,5 +58,7 @@
   </div>
 
 
+
+</script>
   </body>
 </html>

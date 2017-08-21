@@ -20,7 +20,7 @@ routes.use(requireLogin);
 
 
 
-routes.get('/snippets/add', (req, res) => {
+routes.get('/list/add', (req, res) => {
     if (req.query.id) {
       Snippet.findById(req.query.id)
         // render form with this item
@@ -31,9 +31,7 @@ routes.get('/snippets/add', (req, res) => {
 });
 
 routes.post('/snippets', (req, res) => {
-  //edit snippet
-  //set a random number as the ID
-  //need to split array values into individual strings
+
   if (!req.body.id){
     req.body.id = new mongoose.mongo.ObjectID();
   }

@@ -4,7 +4,6 @@ const Snippet = require('../models/snippet');
 const bodyParser = require('body-parser');
 
 const requireLogin = (req, res, next) => {
-  console.log('req.user', req.user);
   if (req.user) {
     next();
   } else {
@@ -12,22 +11,35 @@ const requireLogin = (req, res, next) => {
   }
 };
 
-routes.use(requireLogin)
+routes.use(requireLogin);
 
-routes.get('/search', requireLogin, (req, res) => {
+routes.get('/search', (req, res) => {
 
-  let srch = req.query.snippets;
+  let search = req.query.snippetsresults;
 
   Snippet.find({
-   author: req.user.username,
+      author: req.user.name,
+      $or: [{
+          'language': search
+        },
+        {
+          'tags': search
+        }, {
+          'title': search
+        },
+        {
+          'notes': search
+        }, {
+          'author': search
+        }
+      ]
+    })
 
-    $or: [{'languege': search},
+    .then(snippets => res.render('search', {
+      snippets: snippets
+    }))
 
-    {tags: search}]})
-
-.then(snippets => res.render('search',{snippets: snippets}))
-
-.catch(err => res.send('snippet not found'))
+    .catch(err => res.send('Snippet no found'));
 
 });
 
